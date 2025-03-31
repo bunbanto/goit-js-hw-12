@@ -1,0 +1,147 @@
+/* Styles for Mobile devices */
+.container {
+  /* height: 792px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 36px auto;
+  padding: 0 16px;
+}
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .cont {
+    max-width: 768px;
+  }
+  .form {
+    flex-wrap: nowrap;
+  }
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .cont {
+    max-width: 1128px;
+  }
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.searchbtn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.searchbtn:hover {
+  background: #6c8cff;
+}
+.search-input {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  background: #fff;
+  outline: none;
+  padding: 8px 16px;
+}
+.search-input:hover {
+  border: 1px solid #000;
+}
+.search-input:focus {
+  border: 1px solid #4e75ff;
+  color: #2e2f42;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 32px auto;
+  max-width: 1128px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  border: 1px solid #808080;
+  width: 360px;
+
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 360px;
+  max-height: 200px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+  width: 360px;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.info p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px 0;
+}
+.simple-lightbox {
+  background: rgba(46, 47, 66, 0.8);
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  background: #fff;
+  box-shadow: -24px 0 #fff, 24px 0 #fff;
+  box-sizing: border-box;
+  animation: shadowPulse 2s linear infinite;
+}
+
+@keyframes shadowPulse {
+  33% {
+    background: #fff;
+    box-shadow: -24px 0 #ff3d00, 24px 0 #fff;
+  }
+  66% {
+    background: #ff3d00;
+    box-shadow: -24px 0 #fff, 24px 0 #fff;
+  }
+  100% {
+    background: #fff;
+    box-shadow: -24px 0 #fff, 24px 0 #ff3d00;
+  }
+}
