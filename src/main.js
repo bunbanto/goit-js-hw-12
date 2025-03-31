@@ -5,7 +5,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
-const gallery = document.querySelector('.gallery');
+//const gallery = document.querySelector('.gallery');
 
 hideLoader();
 form.addEventListener('submit', event => {
