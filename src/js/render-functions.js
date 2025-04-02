@@ -6,12 +6,13 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const loadMoreBtn = document.querySelector('.btnMore');
 
 export function clearGallery() {
   gallery.innerHTML = '';
 }
 
-export function renderGallery(images) {
+export function createGallery(images) {
   const markup = images
     .map(
       ({
@@ -41,10 +42,25 @@ export function renderGallery(images) {
   gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
+
+export function scrollGallery() {
+  const galleryItemHeight =
+    document.querySelector('.gallery-item')?.getBoundingClientRect().height ||
+    0;
+  window.scrollBy({ top: galleryItemHeight * 3, behavior: 'smooth' });
+}
 export function showLoader() {
   loader.classList.add('loader');
 }
 
 export function hideLoader() {
   loader.classList.remove('loader');
+}
+
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.add('btnMore');
+}
+
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.remove('btnMore');
 }
