@@ -86,7 +86,6 @@ loadMoreBtn.addEventListener('click', async () => {
     scrollGallery();
   } catch (error) {
     iziToast.error({ message: 'Something went wrong. Please try again.' });
-    hideLoader();
   } finally {
     hideLoader();
   }
