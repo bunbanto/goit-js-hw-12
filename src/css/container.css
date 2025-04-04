@@ -144,6 +144,7 @@
     box-shadow: -24px 0 #fff, 24px 0 #ff3d00;
 }
      } */
+
 .loader {
   display: block;
   position: relative;
@@ -159,7 +160,9 @@
   background-position: 0 0, 40px 0, 80px 0, 120px 0;
   animation: pgfill 1s linear infinite;
 }
-
+.hidden {
+  display: none;
+}
 @keyframes pgfill {
   0% {
     background-image: linear-gradient(#fff 20px, transparent 0),
