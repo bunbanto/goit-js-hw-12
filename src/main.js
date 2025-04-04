@@ -18,7 +18,6 @@ let searchQuery = '';
 let page = 1;
 
 hideLoader();
-loadMoreBtn.textContent = '';
 hideLoadMoreButton();
 
 form.addEventListener('submit', async event => {
@@ -43,14 +42,31 @@ form.addEventListener('submit', async event => {
 
   try {
     const { hits, totalHits } = await getImagesByQuery(searchQuery, page);
+
+    if (totalHits === 0) {
+      iziToast.error({
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+        titleColor: '#FFFFFF',
+        messageColor: '#FFFFFF',
+        color: '#B51B1B',
+        position: 'topRight',
+      });
+      return;
+    }
+
     createGallery(hits);
 
-    if (hits.length > 0 && totalHits > 15) {
-      loadMoreBtn.textContent = 'Load more';
+    if (totalHits > page * 15) {
       showLoadMoreButton();
     } else {
-      hideLoadMoreButton();
-      showLoader();
+      iziToast.info({
+        message: "We're sorry, but you've reached the end of search results.",
+        titleColor: '#FFFFFF',
+        messageColor: '#FFFFFF',
+        color: '#1B6CB5',
+        position: 'topRight',
+      });
     }
   } catch (error) {
     iziToast.error({ message: 'Something went wrong. Please try again.' });
@@ -60,7 +76,6 @@ form.addEventListener('submit', async event => {
 });
 
 loadMoreBtn.addEventListener('click', async () => {
-  loadMoreBtn.textContent = '';
   hideLoadMoreButton();
   showLoader();
   page += 1;
@@ -68,10 +83,10 @@ loadMoreBtn.addEventListener('click', async () => {
   try {
     const { hits, totalHits } = await getImagesByQuery(searchQuery, page);
     createGallery(hits);
-    showLoader();
 
-    if (page * 15 < totalHits) {
-      loadMoreBtn.textContent = 'Load more';
+    const alreadyLoaded = page * 15;
+
+    if (alreadyLoaded < totalHits) {
       showLoadMoreButton();
     } else {
       iziToast.info({

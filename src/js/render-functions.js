@@ -47,7 +47,7 @@ export function scrollGallery() {
   const galleryItemHeight =
     document.querySelector('.gallery-item')?.getBoundingClientRect().height ||
     0;
-  window.scrollBy({ top: galleryItemHeight * 3, behavior: 'smooth' });
+  window.scrollBy({ top: galleryItemHeight * 2, behavior: 'smooth' });
 }
 export function showLoader() {
   loader.classList.remove('hidden');
@@ -57,10 +57,10 @@ export function hideLoader() {
   loader.classList.add('hidden');
 }
 
-export function showLoadMoreButton() {
-  loadMoreBtn.classList.add('btnMore');
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.add('hidden');
 }
 
-export function hideLoadMoreButton() {
-  loadMoreBtn.classList.remove('btnMore');
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('hidden');
 }

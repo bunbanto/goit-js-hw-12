@@ -163,6 +163,9 @@
 .hidden {
   display: none;
 }
+/* .btnMore {
+  display: none;
+} */
 @keyframes pgfill {
   0% {
     background-image: linear-gradient(#fff 20px, transparent 0),

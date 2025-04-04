@@ -19,17 +19,6 @@ export async function getImagesByQuery(query, page) {
       },
     });
 
-    if (response.data.hits.length === 0) {
-      iziToast.error({
-        message:
-          'Sorry, there are no images matching your search query. Please try again!',
-        titleColor: '#FFFFFF',
-        messageColor: '#FFFFFF',
-        color: '#B51B1B',
-        position: 'topRight',
-      });
-    }
-
     return response.data;
   } catch (error) {
     iziToast.error({
