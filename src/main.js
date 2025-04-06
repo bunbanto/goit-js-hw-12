@@ -18,7 +18,6 @@ let searchQuery = '';
 let page = 1;
 
 hideLoader();
-hideLoadMoreButton();
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
@@ -100,7 +99,9 @@ loadMoreBtn.addEventListener('click', async () => {
 
     scrollGallery();
   } catch (error) {
-    iziToast.error({ message: 'Something went wrong. Please try again.' });
+    iziToast.error({
+      message: 'Something went wrong. Please try again.',
+    });
   } finally {
     hideLoader();
   }
